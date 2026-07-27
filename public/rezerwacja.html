@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rezerwacja — MS STUDIO Auto Detailing</title>
+  <meta name="description" content="Zarezerwuj termin mycia lub sprzątania auta z dojazdem. Wypełnij formularz i wybierz termin w kalendarzu." />
+
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/animations.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/booking.css" />
+</head>
+<body class="page-transition">
+
+<!-- ====== NAVBAR ====== -->
+<nav id="navbar" class="scrolled" role="navigation" aria-label="Główna nawigacja">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="MS STUDIO - powrót do strony głównej">
+      <img src="/logo/ms_logo.png" alt="MS STUDIO Logo" width="140" height="36" />
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/#uslugi" class="nav-link" id="nav-uslugi">Usługi</a></li>
+      <li><a href="/#jak-dzialamy" class="nav-link" id="nav-jak">Jak działamy</a></li>
+      <li><a href="/#realizacje" class="nav-link" id="nav-real">Realizacje</a></li>
+      <li>
+        <a href="https://wa.me/48507623056" target="_blank" rel="noopener noreferrer"
+           class="btn btn-outline nav-cta" id="nav-whatsapp">WhatsApp</a>
+      </li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="nav-mobile" id="nav-mobile">
+  <a href="/#uslugi" class="nav-link" id="mob-uslugi">Usługi</a>
+  <a href="/#jak-dzialamy" class="nav-link" id="mob-jak">Jak działamy</a>
+  <a href="/#realizacje" class="nav-link" id="mob-real">Realizacje</a>
+</div>
+
+<!-- ====== BOOKING PAGE ====== -->
+<main id="booking-page" style="padding-top: var(--navbar-height);">
+
+  <!-- Page Header -->
+  <div class="booking-header">
+    <div class="container">
+      <a href="/" class="booking-back" id="back-btn" aria-label="Powrót">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        Powrót
+      </a>
+      <div class="section-label" style="margin-top:16px;">
+        <span class="label">Rezerwacja</span>
+      </div>
+      <h1 class="heading-xl" id="booking-heading">
+        Umów <span style="color:var(--accent)">wizytę</span>
+      </h1>
+    </div>
+  </div>
+
+  <!-- Wizard Steps Indicator -->
+  <div class="booking-steps-bar" role="tablist" aria-label="Kroki rezerwacji">
+    <div class="container">
+      <div class="steps-inner">
+        <div class="step-item active" id="step-indicator-1" role="tab" aria-selected="true" aria-controls="step-1">
+          <div class="step-num">1</div>
+          <span class="step-label">Usługi</span>
+        </div>
+        <div class="step-connector" aria-hidden="true"></div>
+        <div class="step-item" id="step-indicator-2" role="tab" aria-selected="false" aria-controls="step-2">
+          <div class="step-num">2</div>
+          <span class="step-label">Twoje dane</span>
+        </div>
+        <div class="step-connector" aria-hidden="true"></div>
+        <div class="step-item" id="step-indicator-3" role="tab" aria-selected="false" aria-controls="step-3">
+          <div class="step-num">3</div>
+          <span class="step-label">Termin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wizard Content -->
+  <div class="booking-content">
+    <div class="container">
+
+      <!-- ── KROK 1: Wybór usług ── -->
+      <div class="wizard-step active" id="step-1" role="tabpanel" aria-labelledby="step-indicator-1">
+        <h2 class="step-title">Jakie usługi Cię interesują?</h2>
+        <p class="step-subtitle">Możesz wybrać jedną lub obie opcje. Ostateczna wycena po kontakcie z nami.</p>
+
+        <div class="booking-services-grid">
+          <!-- Mycie zewnętrzne -->
+          <div class="booking-service-card card-selectable" id="book-mycie" role="button" tabindex="0" aria-pressed="false" data-service="mycie">
+            <div class="bs-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 14.58V14a8 8 0 00-8-8v0a8 8 0 00-8 8v.58M12 6v2M4.93 7.93l1.41 1.41M19.07 7.93l-1.41 1.41"/>
+                <path d="M5.5 17.5S7 14 12 14s6.5 3.5 6.5 3.5"/><path d="M3 20h18"/><path d="M12 14v6"/>
+              </svg>
+            </div>
+            <div class="bs-content">
+              <h3 class="bs-title">Mycie zewnętrzne</h3>
+              <p class="bs-desc">Nadwozie, felgi, szyby, progi — kompletna pielęgnacja z zewnątrz.</p>
+              <ul class="bs-features">
+                <li>Nadwozie (karoseria)</li>
+                <li>Felgi i opony</li>
+                <li>Szyby zewnętrzne</li>
+                <li>Listwy i progi</li>
+              </ul>
+            </div>
+            <div class="bs-check" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+
+          <!-- Sprzątanie wnętrza -->
+          <div class="booking-service-card card-selectable" id="book-wnetrze" role="button" tabindex="0" aria-pressed="false" data-service="wnetrze">
+            <div class="bs-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="5" width="20" height="14" rx="3"/>
+                <path d="M7 5v14M17 5v14M2 10h20M2 15h20"/>
+              </svg>
+            </div>
+            <div class="bs-content">
+              <h3 class="bs-title">Sprzątanie wnętrza</h3>
+              <p class="bs-desc">Tapicerka, kokpit, dywaniki — każdy zakamarek jak nowy.</p>
+              <ul class="bs-features">
+                <li>Tapicerka i siedzenia</li>
+                <li>Kokpit i plastiki</li>
+                <li>Dywaniki i podłoga</li>
+                <li>Szyby wewnętrzne</li>
+              </ul>
+            </div>
+            <div class="bs-check" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+
+          <!-- Obie usługi -->
+          <div class="booking-service-card card-selectable booking-service-both" id="book-oba" role="button" tabindex="0" aria-pressed="false" data-service="oba">
+            <div class="bs-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <div class="bs-content">
+              <h3 class="bs-title">Komplet — obie usługi</h3>
+              <p class="bs-desc">Mycie zewnętrzne + sprzątanie wnętrza. Kompleksowe podejście do Twojego auta.</p>
+            </div>
+            <div class="bs-badge">Najpopularniejszy wybór</div>
+            <div class="bs-check" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-nav" style="justify-content:flex-end;">
+          <button class="btn btn-primary btn-lg" id="step1-next" disabled aria-label="Przejdź do podania danych">
+            Dalej — Twoje dane
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ── KROK 2: Dane osobowe ── -->
+      <div class="wizard-step" id="step-2" role="tabpanel" aria-labelledby="step-indicator-2">
+        <h2 class="step-title">Twoje dane kontaktowe</h2>
+        <p class="step-subtitle">Potrzebujemy kilku informacji, żeby się z Tobą skontaktować i dojechać.</p>
+
+        <form class="booking-form" id="booking-form" novalidate>
+          <div class="form-grid">
+            <!-- Imię i nazwisko -->
+            <div class="form-group">
+              <label class="form-label" for="f-name">Imię i nazwisko <span class="form-required">*</span></label>
+              <input class="form-input" type="text" id="f-name" name="clientName" placeholder="Jan Kowalski" autocomplete="name" required />
+              <span class="form-error" id="err-name" role="alert"></span>
+            </div>
+
+            <!-- Telefon -->
+            <div class="form-group">
+              <label class="form-label" for="f-phone">Numer telefonu <span class="form-required">*</span></label>
+              <input class="form-input" type="tel" id="f-phone" name="phone" placeholder="+48 500 000 000" autocomplete="tel" required />
+              <span class="form-error" id="err-phone" role="alert"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label class="form-label" for="f-email">Adres email</label>
+              <input class="form-input" type="email" id="f-email" name="email" placeholder="jan@email.pl" autocomplete="email" />
+              <span class="form-hint">Opcjonalnie — prześlemy potwierdzenie</span>
+            </div>
+
+            <!-- Auto -->
+            <div class="form-group">
+              <label class="form-label" for="f-car">Marka i model auta</label>
+              <input class="form-input" type="text" id="f-car" name="carModel" placeholder="np. Audi A4, VW Golf..." />
+              <span class="form-hint">Opcjonalnie — pomaga przy wycenie</span>
+            </div>
+
+            <!-- Adres (full width) -->
+            <div class="form-group form-group-full">
+              <label class="form-label" for="f-address">Adres realizacji usługi <span class="form-required">*</span></label>
+              <input class="form-input" type="text" id="f-address" name="address" placeholder="ul. Przykładowa 12, Ostrowiec Świętokrzyski" autocomplete="street-address" required />
+              <span class="form-error" id="err-address" role="alert"></span>
+              <span class="form-hint">Dokładny adres, gdzie mamy podjechać</span>
+            </div>
+
+            <!-- Opcja realizacji -->
+            <div class="form-group form-group-full">
+              <label class="form-label">Jak wykonamy usługę? <span class="form-required">*</span></label>
+              <div class="form-radio-group" role="radiogroup">
+                <label class="form-radio" id="opt-ucieb">
+                  <input type="radio" name="realizacja" value="u_siebie" id="r-u-siebie" required />
+                  <div class="form-radio-card">
+                    <strong>U Ciebie</strong>
+                    <span>Mam dostęp do wody i prądu</span>
+                  </div>
+                </label>
+                <label class="form-radio" id="opt-d2d">
+                  <input type="radio" name="realizacja" value="door_to_door" id="r-d2d" />
+                  <div class="form-radio-card">
+                    <strong>Door-to-Door</strong>
+                    <span>Odbierzecie i odstawicie auto</span>
+                  </div>
+                </label>
+              </div>
+              <span class="form-error" id="err-realizacja" role="alert"></span>
+            </div>
+
+            <!-- Uwagi -->
+            <div class="form-group form-group-full">
+              <label class="form-label" for="f-notes">Uwagi / opis stanu auta</label>
+              <textarea class="form-input form-textarea" id="f-notes" name="notes" placeholder="Opisz stan auta, co wymaga szczególnej uwagi..." rows="4"></textarea>
+            </div>
+          </div>
+        </form>
+
+        <div class="step-nav">
+          <button class="btn btn-ghost" id="step2-back" aria-label="Wróć do wyboru usług">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            Wstecz
+          </button>
+          <button class="btn btn-primary btn-lg" id="step2-next" aria-label="Przejdź do wyboru terminu">
+            Dalej — Wybierz termin
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ── KROK 3: Kalendarz ── -->
+      <div class="wizard-step" id="step-3" role="tabpanel" aria-labelledby="step-indicator-3">
+        <h2 class="step-title">Wybierz termin</h2>
+        <p class="step-subtitle">Wybierz dostępny dzień i godzinę. Terminy szare są już zajęte.</p>
+
+        <div class="calendar-booking-layout">
+          <!-- Calendar -->
+          <div class="calendar-panel">
+            <div class="cal-header">
+              <button class="cal-nav-btn" id="cal-prev" aria-label="Poprzedni miesiąc">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <h3 class="cal-month-label" id="cal-month-label" aria-live="polite">Lipiec 2026</h3>
+              <button class="cal-nav-btn" id="cal-next" aria-label="Następny miesiąc">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+
+            <div class="cal-weekdays" aria-hidden="true">
+              <span>Pn</span><span>Wt</span><span>Śr</span>
+              <span>Cz</span><span>Pt</span><span>So</span><span>Nd</span>
+            </div>
+
+            <div class="cal-days" id="cal-days" role="grid" aria-label="Kalendarz - wybierz dzień">
+              <!-- Filled by JS -->
+            </div>
+
+            <div class="cal-legend" aria-label="Legenda kalendarza">
+              <span class="cal-legend-item">
+                <span class="cal-dot available"></span> Dostępny
+              </span>
+              <span class="cal-legend-item">
+                <span class="cal-dot busy"></span> Zajęty
+              </span>
+              <span class="cal-legend-item">
+                <span class="cal-dot selected"></span> Wybrany
+              </span>
+            </div>
+          </div>
+
+          <!-- Time slots + Summary -->
+          <div class="booking-sidebar">
+            <!-- Time slots -->
+            <div class="timeslots-panel" id="timeslots-panel">
+              <h4 class="timeslots-title" id="timeslots-heading">Wybierz godzinę</h4>
+              <p class="timeslots-date" id="timeslots-date">Zaznacz dzień w kalendarzu</p>
+              <div class="timeslots-grid" id="timeslots-grid" role="group" aria-labelledby="timeslots-heading">
+                <!-- Filled by JS -->
+              </div>
+            </div>
+
+            <!-- Booking Summary -->
+            <div class="booking-summary" id="booking-summary">
+              <h4 class="summary-title">Podsumowanie</h4>
+              <div class="summary-rows">
+                <div class="summary-row">
+                  <span class="summary-key">Usługa</span>
+                  <span class="summary-val" id="sum-service">—</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-key">Klient</span>
+                  <span class="summary-val" id="sum-name">—</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-key">Telefon</span>
+                  <span class="summary-val" id="sum-phone">—</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-key">Adres</span>
+                  <span class="summary-val" id="sum-address">—</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-key">Termin</span>
+                  <span class="summary-val" id="sum-datetime">—</span>
+                </div>
+              </div>
+              <p class="summary-note">
+                Wycena indywidualna — skontaktujemy się przed wizytą.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn btn-ghost" id="step3-back" aria-label="Wróć do danych">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            Wstecz
+          </button>
+          <button class="btn btn-primary btn-lg" id="step3-submit" disabled aria-label="Potwierdź rezerwację">
+            Potwierdź rezerwację
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ── POTWIERDZENIE ── -->
+      <div class="wizard-step" id="step-success">
+        <div class="success-screen">
+          <div class="success-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2 class="success-title">Rezerwacja przyjęta!</h2>
+          <p class="success-desc">
+            Termin pojawił się w naszym kalendarzu. Skontaktujemy się z Tobą wkrótce, żeby potwierdzić szczegóły i ustalić wycenę.
+          </p>
+          <div class="success-detail" id="success-detail">
+            <!-- Filled by JS -->
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:32px;">
+            <a href="/" class="btn btn-outline btn-lg" id="success-home">Wróć do strony głównej</a>
+            <a href="https://wa.me/48507623056" target="_blank" rel="noopener noreferrer"
+               class="btn btn-primary btn-lg" id="success-wa">
+              Napisz na WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+  </div><!-- /booking-content -->
+
+</main>
+
+<script src="/assets/js/booking.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

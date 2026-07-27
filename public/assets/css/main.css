@@ -1,0 +1,428 @@
+/* ============================================================
+   MS STUDIO — DESIGN SYSTEM
+   Brand Guidelines 2026 | Dark Mode | Electric Cyan
+   ============================================================ */
+
+/* --- FONTS --- */
+@font-face {
+  font-family: 'Eurostile';
+  src: url('/fonts/eurostile/EurostileExtendedBlack.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DarkerGrotesque';
+  src: url('/fonts/grotesque/DarkerGrotesque-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DarkerGrotesque';
+  src: url('/fonts/grotesque/DarkerGrotesque-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DarkerGrotesque';
+  src: url('/fonts/grotesque/DarkerGrotesque-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DarkerGrotesque';
+  src: url('/fonts/grotesque/DarkerGrotesque-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DarkerGrotesque';
+  src: url('/fonts/grotesque/DarkerGrotesque-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DarkerGrotesque';
+  src: url('/fonts/grotesque/DarkerGrotesque-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DarkerGrotesque';
+  src: url('/fonts/grotesque/DarkerGrotesque-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+}
+
+/* --- CSS TOKENS --- */
+:root {
+  /* Colors */
+  --bg-primary:       #0c0d0d;
+  --bg-surface:       #161819;
+  --bg-surface-2:     #1e2022;
+  --accent:           #54c3ea;
+  --accent-light:     #9fedff;
+  --accent-dark:      #2a8fb0;
+  --accent-glow:      rgba(84, 195, 234, 0.35);
+  --accent-border:    rgba(84, 195, 234, 0.2);
+  --accent-border-2:  rgba(84, 195, 234, 0.45);
+  --text-primary:     #ffffff;
+  --text-muted:       #d6d6d6;
+  --text-dim:         #8a9ba8;
+  --error:            #ff5c5c;
+  --success:          #54c3ea;
+
+  /* Typography */
+  --font-heading:     'Eurostile', 'Arial Black', sans-serif;
+  --font-body:        'DarkerGrotesque', 'Arial', sans-serif;
+
+  /* Spacing */
+  --section-padding:  120px 0;
+  --container-max:    1200px;
+  --container-px:     clamp(20px, 5vw, 60px);
+
+  /* Radius */
+  --radius-sm:        8px;
+  --radius-md:        16px;
+  --radius-lg:        24px;
+  --radius-xl:        32px;
+
+  /* Shadows / Glows */
+  --glow-sm:          0 0 12px rgba(84, 195, 234, 0.3);
+  --glow-md:          0 0 24px rgba(84, 195, 234, 0.4);
+  --glow-lg:          0 0 48px rgba(84, 195, 234, 0.35);
+  --shadow-card:      0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover:0 8px 40px rgba(0, 0, 0, 0.6);
+
+  /* Transitions */
+  --transition-fast:  0.15s ease;
+  --transition-base:  0.3s ease;
+  --transition-slow:  0.5s ease;
+
+  /* Navbar */
+  --navbar-height:    72px;
+}
+
+/* --- RESET --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video, canvas {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* --- LAYOUT UTILITIES --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-px);
+}
+
+.section {
+  padding: var(--section-padding);
+}
+
+/* --- TYPOGRAPHY SCALE --- */
+.heading-display {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.heading-xl {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.heading-lg {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.heading-md {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.body-lg {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.body-md {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg-primary);
+  box-shadow: var(--glow-sm);
+}
+
+.btn-primary:hover {
+  background: var(--accent-light);
+  box-shadow: var(--glow-md);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--accent);
+  border: 1px solid var(--accent-border-2);
+}
+
+.btn-outline:hover {
+  background: rgba(84, 195, 234, 0.08);
+  border-color: var(--accent);
+  box-shadow: var(--glow-sm);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-lg {
+  padding: 18px 44px;
+  font-size: 0.85rem;
+}
+
+.btn-sm {
+  padding: 10px 22px;
+  font-size: 0.7rem;
+}
+
+/* --- CARDS --- */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(84,195,234,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.card:hover {
+  border-color: var(--accent-border-2);
+  box-shadow: var(--glow-sm), var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+/* --- SECTION LABEL --- */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+  display: inline-block;
+}
+
+/* --- ACCENT LINE --- */
+.accent-line {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 2px;
+  margin: 16px 0;
+  box-shadow: var(--glow-sm);
+}
+
+/* --- SCROLLBAR --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-border-2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* --- SELECTION --- */
+::selection {
+  background: rgba(84, 195, 234, 0.3);
+  color: var(--text-primary);
+}
+
+/* --- GEOMETRIC BACKGROUND PATTERN --- */
+.geo-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.geo-bg svg {
+  position: absolute;
+  opacity: 0.04;
+}
+
+/* --- CYAN GLOW ORBS (decorative) --- */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-orb-cyan {
+  background: radial-gradient(circle, rgba(84, 195, 234, 0.25) 0%, transparent 70%);
+}
+
+/* --- FOCUS STYLES (Accessibility) --- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 80px 0;
+    --navbar-height: 64px;
+  }
+
+  .btn-lg {
+    padding: 16px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 60px 0;
+  }
+}

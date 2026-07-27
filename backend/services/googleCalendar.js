@@ -12,27 +12,38 @@ const TOKEN_PATH       = path.join(__dirname, '..', 'token.json');
 const SCOPES           = ['https://www.googleapis.com/auth/calendar'];
 
 function getAuth() {
-  if (!fs.existsSync(CREDENTIALS_PATH)) {
-    throw new Error(
-      'credentials.json not found. ' +
-      'Run: npm run auth — to set up Google Calendar authentication.'
-    );
-  }
-
-  const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH));
-  const { client_secret, client_id, redirect_uris } = credentials.installed || credentials.web;
-  const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
-
-  if (fs.existsSync(TOKEN_PATH)) {
-    const token = JSON.parse(fs.readFileSync(TOKEN_PATH));
-    oAuth2Client.setCredentials(token);
+  let credentials;
+  if (process.env.GOOGLE_CREDENTIALS_JSON) {
+    credentials = typeof process.env.GOOGLE_CREDENTIALS_JSON === 'string'
+      ? JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON)
+      : process.env.GOOGLE_CREDENTIALS_JSON;
+  } else if (fs.existsSync(CREDENTIALS_PATH)) {
+    credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH));
   } else {
     throw new Error(
-      'token.json not found. ' +
-      'Run: npm run auth — to authorize with Google Calendar.'
+      'Google Credentials not found. ' +
+      'Set GOOGLE_CREDENTIALS_JSON environment variable or provide credentials.json file.'
     );
   }
 
+  const { client_secret, client_id, redirect_uris } = credentials.installed || credentials.web;
+  const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris ? redirect_uris[0] : 'http://localhost');
+
+  let token;
+  if (process.env.GOOGLE_TOKEN_JSON) {
+    token = typeof process.env.GOOGLE_TOKEN_JSON === 'string'
+      ? JSON.parse(process.env.GOOGLE_TOKEN_JSON)
+      : process.env.GOOGLE_TOKEN_JSON;
+  } else if (fs.existsSync(TOKEN_PATH)) {
+    token = JSON.parse(fs.readFileSync(TOKEN_PATH));
+  } else {
+    throw new Error(
+      'Google Token not found. ' +
+      'Set GOOGLE_TOKEN_JSON environment variable or provide token.json file.'
+    );
+  }
+
+  oAuth2Client.setCredentials(token);
   return oAuth2Client;
 }
 

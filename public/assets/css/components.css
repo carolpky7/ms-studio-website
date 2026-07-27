@@ -326,8 +326,6 @@
 .loader-logo {
   height: 52px;
   width: auto;
-  filter: drop-shadow(0 0 16px rgba(84,195,234,0.4));
-  animation: pulseGlow 2s ease-in-out infinite;
 }
 
 .loader-text {

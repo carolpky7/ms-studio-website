@@ -141,5 +141,25 @@
       setTimeout(() => { progressBar.style.display = 'none'; }, 600);
     }
   });
+  /* ── BEFORE / AFTER CARDS (REALIZACJE) ── */
+  const realizacjaCards = document.querySelectorAll('.realizacja-card');
+  realizacjaCards.forEach(card => {
+    const btns = card.querySelectorAll('.ba-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from both
+        btns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked
+        btn.classList.add('active');
+        
+        // Toggle image visibility via card class
+        if (btn.dataset.target === 'after') {
+          card.classList.add('show-after');
+        } else {
+          card.classList.remove('show-after');
+        }
+      });
+    });
+  });
 
 })();

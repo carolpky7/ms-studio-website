@@ -1319,7 +1319,8 @@
   gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-bottom: 20px;
+  padding: 20px 20px 30px 20px; /* Dodany padding top/left/right żeby nie ucinało cieni ani translate */
+  margin: -20px -20px 0 -20px; /* Niwelacja paddingu żeby slider nie był węższy */
   /* Hide scrollbar */
   scrollbar-width: none;
   -ms-overflow-style: none;

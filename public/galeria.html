@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MS STUDIO — Mobilne Auto Detailing | Ostrowiec Świętokrzyski</title>
+  <meta name="description" content="MS STUDIO to mobilne studio auto detailingu z Ostrowca Świętokrzyskiego. Profesjonalne mycie zewnętrzne i sprzątanie wnętrza z dojazdem do klienta. Umów się już dziś!" />
+  <meta name="keywords" content="auto detailing, mycie samochodu, sprzątanie wnętrza, mobilne studio, Ostrowiec Świętokrzyski" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="MS STUDIO — Detailing and Passion" />
+  <meta property="og:description" content="Mobilne studio auto detailingu. Dojeżdżamy do Ciebie." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/ms_fav_32x32.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/ms_fav_512x512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/ms_fav_180x180.png" />
+
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/animations.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/cookie-consent.css" />
+</head>
+<body>
+
+<!-- Progress bar -->
+<div id="load-progress-bar" style="width:0%"></div>
+
+<!-- ====== NAVBAR ====== -->
+<nav id="navbar" role="navigation" aria-label="Główna nawigacja">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="MS STUDIO - strona główna">
+      <img src="/logo/ms_logo.png" alt="MS STUDIO Logo" width="140" height="36" />
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#uslugi" class="nav-link" id="nav-uslugi">Usługi</a></li>
+      <li><a href="#jak-dzialamy" class="nav-link" id="nav-jak">Jak działamy</a></li>
+      <li><a href="#realizacje" class="nav-link" id="nav-real">Realizacje</a></li>
+      <li>
+        <a href="/rezerwacja.html" class="btn btn-primary nav-cta" id="nav-book">
+          Umów się
+        </a>
+      </li>
+    </ul>
+
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Menu mobilne">
+  <a href="#uslugi" class="nav-link" id="mob-uslugi">Usługi</a>
+  <a href="#jak-dzialamy" class="nav-link" id="mob-jak">Jak działamy</a>
+  <a href="#realizacje" class="nav-link" id="mob-real">Realizacje</a>
+  <a href="/rezerwacja.html" class="btn btn-primary" id="mob-book" style="width:100%;text-align:center;margin-top:8px;">Umów się</a>
+</div>
+
+
+<!-- ====== GALERIA ====== -->
+<section id="galeria-page" class="section" style="padding-top: 120px; min-height: 80vh;">
+  <div class="container">
+    <div class="section-label" style="margin-bottom: 24px;">
+      <a href="/#realizacje" style="color: var(--accent); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">&larr; Wróć do realizacji</a>
+    </div>
+    <h1 class="heading-xl" id="gallery-title">Ładowanie...</h1>
+    
+    <div class="masonry-grid" id="masonry-gallery" style="margin-top: 48px;">
+      <!-- Skrypt wypełni to zdjęciami -->
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="/logo/ms_logo.png" class="footer-brand-logo" alt="MS STUDIO" />
+        <p class="footer-brand-desc">
+          Mobilne studio auto detailingu z Ostrowca Świętokrzyskiego. Przyjeżdżamy do Ciebie — gdziekolwiek jesteś.
+        </p>
+        <div class="footer-social" role="list" aria-label="Social media">
+          <!-- Instagram -->
+          <a href="#" class="footer-social-btn" id="footer-instagram" aria-label="Instagram MS Studio" role="listitem">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <!-- TikTok -->
+          <a href="#" class="footer-social-btn" id="footer-tiktok" aria-label="TikTok MS Studio" role="listitem">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" class="footer-social-btn" id="footer-facebook" aria-label="Facebook MS Studio" role="listitem">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Nawigacja -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Nawigacja</h3>
+        <ul class="footer-links" role="list">
+          <li><a href="#uslugi" class="footer-link" id="footer-nav-uslugi">Usługi</a></li>
+          <li><a href="#jak-dzialamy" class="footer-link" id="footer-nav-jak">Jak działamy</a></li>
+          <li><a href="#realizacje" class="footer-link" id="footer-nav-real">Realizacje</a></li>
+          <li><a href="#opinie" class="footer-link" id="footer-nav-opinie">Opinie</a></li>
+          <li><a href="/rezerwacja.html" class="footer-link" id="footer-nav-book">Rezerwacja</a></li>
+        </ul>
+      </div>
+
+      <!-- Kontakt -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Kontakt</h3>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .05h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+          <a href="tel:+48507623056" style="color:var(--text-muted);transition:color var(--transition-base);" id="footer-phone">+48 507 623 056</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Ostrowiec Świętokrzyski<br/>i okolice (do 60 km)</span>
+        </div>
+        <div class="footer-contact-item" style="margin-top:16px;">
+          <a href="https://wa.me/48507623056" target="_blank" rel="noopener noreferrer"
+             class="btn btn-outline btn-sm" id="footer-whatsapp" style="width:100%;justify-content:center;">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; 2026 MS STUDIO. Wszelkie prawa zastrzeżone.
+      </p>
+      <button type="button" class="cookie-footer-link" id="cookie-settings-btn">
+        Ustawienia plików cookie
+      </button>
+      <div class="footer-rr-badge">
+        Używamy kosmetyków <span>RR Customs</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/scroll-video.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/galeria.js" defer></script>
+<script src="/assets/js/cookie-consent.js" defer></script>
+</body>
+</html>

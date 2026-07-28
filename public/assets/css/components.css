@@ -923,6 +923,50 @@
   height: 100%;
 }
 
+.car-name-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(22, 24, 25, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--text-main);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-left: 3px solid var(--accent);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(22, 24, 25, 0.7);
+  backdrop-filter: blur(8px);
+  color: var(--text-dim);
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.gallery-btn:hover {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
 .realizacja-images img {
   position: absolute;
   top: 0;
@@ -1372,6 +1416,39 @@
   .review-card {
     flex: 0 0 calc(33.333% - 16px);
   }
+
+/* ===== GALERIA (MASONRY) ===== */
+.masonry-grid {
+  columns: 1;
+  column-gap: 24px;
+}
+
+@media (min-width: 600px) {
+  .masonry-grid { columns: 2; }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid { columns: 3; }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 24px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.masonry-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(84, 195, 234, 0.15);
+}
+
+.masonry-item img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .review-card:hover {

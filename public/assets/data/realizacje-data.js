@@ -1,4 +1,4 @@
-[
+window.realizacjeData = [
   {
     "id": "auto-1",
     "name": "BMW M5 CS 2025",
@@ -29,4 +29,4 @@
       "/assets/images/realizacje/auto3-przed.jpg"
     ]
   }
-]
+];

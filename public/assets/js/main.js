@@ -143,59 +143,53 @@
   });
   /* ── DYNAMICZNE REALIZACJE (PRZED/PO) ── */
   const realizacjeGrid = document.getElementById('realizacje-grid');
-  if (realizacjeGrid) {
-    fetch('/assets/data/realizacje.json')
-      .then(response => response.json())
-      .then(data => {
-        data.forEach((car, index) => {
-          const delay = index + 1; // Dla animate-on-scroll delay
+  if (realizacjeGrid && window.realizacjeData) {
+    window.realizacjeData.forEach((car, index) => {
+      const delay = index + 1; // Dla animate-on-scroll delay
+      
+      const cardHTML = `
+        <div class="realizacja-card animate-on-scroll delay-${delay}">
+          <!-- Odznaka z nazwą auta -->
+          <div class="car-name-badge">${car.name}</div>
           
-          const cardHTML = `
-            <div class="realizacja-card animate-on-scroll delay-${delay}">
-              <!-- Odznaka z nazwą auta -->
-              <div class="car-name-badge">${car.name}</div>
-              
-              <!-- Przycisk do galerii -->
-              <a href="/galeria.html?id=${car.id}" class="gallery-btn" aria-label="Galeria dla ${car.name}">Galeria &gt;</a>
+          <!-- Przycisk do galerii -->
+          <a href="galeria.html?id=${car.id}" class="gallery-btn" aria-label="Galeria dla ${car.name}">Galeria &gt;</a>
 
-              <div class="realizacja-images">
-                <img src="${car.beforeImage}" alt="Przed detailingiem: ${car.name}" class="img-before" onerror="this.src='https://placehold.co/800x600/161819/54c3ea?text=PRZED'" />
-                <img src="${car.afterImage}" alt="Po detailingu: ${car.name}" class="img-after" onerror="this.src='https://placehold.co/800x600/161819/54c3ea?text=PO'" />
-              </div>
-              <div class="realizacja-ba-label">
-                <button type="button" class="ba-btn before active" aria-label="Pokaż zdjęcie przed" data-target="before">Przed</button>
-                <button type="button" class="ba-btn after" aria-label="Pokaż zdjęcie po" data-target="after">Po</button>
-              </div>
-            </div>
-          `;
-          realizacjeGrid.insertAdjacentHTML('beforeend', cardHTML);
-        });
+          <div class="realizacja-images">
+            <img src="${car.beforeImage.startsWith('/') ? '.' + car.beforeImage : car.beforeImage}" alt="Przed detailingiem: ${car.name}" class="img-before" onerror="this.src='https://placehold.co/800x600/161819/54c3ea?text=PRZED'" />
+            <img src="${car.afterImage.startsWith('/') ? '.' + car.afterImage : car.afterImage}" alt="Po detailingu: ${car.name}" class="img-after" onerror="this.src='https://placehold.co/800x600/161819/54c3ea?text=PO'" />
+          </div>
+          <div class="realizacja-ba-label">
+            <button type="button" class="ba-btn before active" aria-label="Pokaż zdjęcie przed" data-target="before">Przed</button>
+            <button type="button" class="ba-btn after" aria-label="Pokaż zdjęcie po" data-target="after">Po</button>
+          </div>
+        </div>
+      `;
+      realizacjeGrid.insertAdjacentHTML('beforeend', cardHTML);
+    });
 
-        // Re-attach event listeners for generated cards
-        const realizacjaCards = realizacjeGrid.querySelectorAll('.realizacja-card');
-        realizacjaCards.forEach(card => {
-          const btns = card.querySelectorAll('.ba-btn');
-          btns.forEach(btn => {
-            btn.addEventListener('click', () => {
-              btns.forEach(b => b.classList.remove('active'));
-              btn.classList.add('active');
-              if (btn.dataset.target === 'after') {
-                card.classList.add('show-after');
-              } else {
-                card.classList.remove('show-after');
-              }
-            });
-          });
+    // Re-attach event listeners for generated cards
+    const realizacjaCards = realizacjeGrid.querySelectorAll('.realizacja-card');
+    realizacjaCards.forEach(card => {
+      const btns = card.querySelectorAll('.ba-btn');
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          if (btn.dataset.target === 'after') {
+            card.classList.add('show-after');
+          } else {
+            card.classList.remove('show-after');
+          }
         });
-        
-        // Trigger IntersectionObserver for newly added elements (if the observer exists globally, we would call it. We assume scrolling will catch it if they are below fold, or we can just make them visible if already in viewport).
-        // Since animate-on-scroll logic is usually bound once, we might need to re-trigger it. Let's assume standard behavior or they will appear as user scrolls.
-        const observer = window.scrollObserver;
-        if (observer) {
-          realizacjeGrid.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-        }
-      })
-      .catch(error => console.error('Błąd wczytywania realizacji:', error));
+      });
+    });
+    
+    // Trigger IntersectionObserver for newly added elements
+    const observer = window.scrollObserver;
+    if (observer) {
+      realizacjeGrid.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    }
   }
 
 })();

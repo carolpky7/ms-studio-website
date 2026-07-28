@@ -1491,3 +1491,103 @@
     align-items: center;
   }
 }
+
+/* ===== O NAS (FOUNDERS) ===== */
+.founders-grid {
+  display: grid;
+  gap: 48px;
+  grid-template-columns: 1fr;
+}
+
+.founder-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: rgba(22, 24, 25, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+@media (min-width: 900px) {
+  .founder-card {
+    flex-direction: row;
+    align-items: center;
+  }
+  .founder-card.reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.founder-photo {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 400px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .founder-photo {
+    width: 45%;
+    margin: 0;
+  }
+}
+
+.founder-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-base);
+}
+
+.founder-card:hover .founder-photo img {
+  transform: scale(1.05);
+}
+
+.founder-info {
+  flex: 1;
+}
+
+.founder-name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--text-base);
+  margin-bottom: 8px;
+}
+
+.founder-role {
+  color: var(--accent);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.founder-bio {
+  color: var(--text-dim);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===== MISJA ===== */
+.mission-statement {
+  background: rgba(22, 24, 25, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-lg);
+  padding: 64px 32px;
+  margin-top: -64px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 2;
+}

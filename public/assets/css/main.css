@@ -3,6 +3,8 @@
    Brand Guidelines 2026 | Dark Mode | Electric Cyan
    ============================================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Saira+Expanded:wght@700;800;900&display=swap');
+
 /* --- FONTS --- */
 @font-face {
   font-family: 'Eurostile';
@@ -74,7 +76,7 @@
   --success:          #54c3ea;
 
   /* Typography */
-  --font-heading:     'Eurostile', 'Arial Black', sans-serif;
+  --font-heading:     'Saira Expanded', 'Eurostile', 'Arial Black', sans-serif;
   --font-body:        'DarkerGrotesque', 'Arial', sans-serif;
 
   /* Spacing */

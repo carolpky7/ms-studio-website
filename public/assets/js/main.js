@@ -141,55 +141,25 @@
       setTimeout(() => { progressBar.style.display = 'none'; }, 600);
     }
   });
-  /* ── DYNAMICZNE REALIZACJE (PRZED/PO) ── */
-  const realizacjeGrid = document.getElementById('realizacje-grid');
-  if (realizacjeGrid && window.realizacjeData) {
-    window.realizacjeData.forEach((car, index) => {
-      const delay = index + 1; // Dla animate-on-scroll delay
-      
-      const cardHTML = `
-        <div class="realizacja-card animate-on-scroll delay-${delay}">
-          <!-- Odznaka z nazwą auta -->
-          <div class="car-name-badge">${car.name}</div>
-          
-          <!-- Przycisk do galerii -->
-          <a href="galeria.html?id=${car.id}" class="gallery-btn" aria-label="Galeria dla ${car.name}">Galeria &gt;</a>
-
-          <div class="realizacja-images">
-            <img src="${car.beforeImage.startsWith('/') ? '.' + car.beforeImage : car.beforeImage}" alt="Przed detailingiem: ${car.name}" class="img-before" onerror="this.src='https://placehold.co/800x600/161819/54c3ea?text=PRZED'" />
-            <img src="${car.afterImage.startsWith('/') ? '.' + car.afterImage : car.afterImage}" alt="Po detailingu: ${car.name}" class="img-after" onerror="this.src='https://placehold.co/800x600/161819/54c3ea?text=PO'" />
-          </div>
-          <div class="realizacja-ba-label">
-            <button type="button" class="ba-btn before active" aria-label="Pokaż zdjęcie przed" data-target="before">Przed</button>
-            <button type="button" class="ba-btn after" aria-label="Pokaż zdjęcie po" data-target="after">Po</button>
-          </div>
-        </div>
-      `;
-      realizacjeGrid.insertAdjacentHTML('beforeend', cardHTML);
-    });
-
-    // Re-attach event listeners for generated cards
-    const realizacjaCards = realizacjeGrid.querySelectorAll('.realizacja-card');
-    realizacjaCards.forEach(card => {
-      const btns = card.querySelectorAll('.ba-btn');
-      btns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          btns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          if (btn.dataset.target === 'after') {
-            card.classList.add('show-after');
-          } else {
-            card.classList.remove('show-after');
-          }
-        });
+  /* ── BEFORE / AFTER CARDS (REALIZACJE) ── */
+  const realizacjaCards = document.querySelectorAll('.realizacja-card');
+  realizacjaCards.forEach(card => {
+    const btns = card.querySelectorAll('.ba-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from both
+        btns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked
+        btn.classList.add('active');
+        
+        // Toggle image visibility via card class
+        if (btn.dataset.target === 'after') {
+          card.classList.add('show-after');
+        } else {
+          card.classList.remove('show-after');
+        }
       });
     });
-    
-    // Trigger IntersectionObserver for newly added elements
-    const observer = window.scrollObserver;
-    if (observer) {
-      realizacjeGrid.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-    }
-  }
+  });
 
 })();

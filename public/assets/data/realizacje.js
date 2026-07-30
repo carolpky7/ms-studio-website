@@ -2,7 +2,7 @@ window.realizacjeData = [
   {
     id: "auto-1",
     name: "BMW M5 CS 2025",
-    coverImage: "/assets/images/realizacje/auto-1/cover.jpg",
+    coverImage: "/assets/images/portfolio/auto-1/cover.jpg",
     services: [
       "Dokładne mycie zewnętrzne",
       "Kompleksowe czyszczenie wnętrza",
@@ -21,7 +21,7 @@ window.realizacjeData = [
   {
     id: "auto-2",
     name: "Mercedes AMG GT",
-    coverImage: "/assets/images/realizacje/auto-2/cover.jpg",
+    coverImage: "/assets/images/portfolio/auto-2/cover.jpg",
     services: [
       "Kompleksowe czyszczenie wnętrza",
       "Pranie tapicerki skórzanej",
@@ -40,7 +40,7 @@ window.realizacjeData = [
   {
     id: "auto-3",
     name: "Audi RS6 Avant",
-    coverImage: "/assets/images/realizacje/auto-3/cover.jpg",
+    coverImage: "/assets/images/portfolio/auto-3/cover.jpg",
     services: [
       "Dokładne mycie zewnętrzne",
       "Odświeżenie wnętrza",

@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (i > 0) item.classList.add(`delay-${Math.min(i, 3)}`);
 
       const img = document.createElement('img');
-      img.src = `/assets/images/realizacje/${car.id}/${filename}`;
+      img.src = `/assets/images/portfolio/${car.id}/${filename}`;
       img.alt = `${car.name} - zdjęcie ${i + 1}`;
       img.loading = 'lazy';
       img.onerror = function() {
